@@ -4,9 +4,6 @@ const mongoose = require('mongoose');
 const blogRoutes = require('./routes/blogRoutes');
 
 const app = express();
-
-
-
 // connect to mongo db
 var db = "mongodb://localhost:27017";
 const dbURI = 'mongodb+srv://tung42:tung422005@cluster0.s0xn8td.mongodb.net/note-tuts?retryWrites=true&w=majority&appName=Cluster0 || ';
@@ -14,9 +11,8 @@ mongoose.connect(db)
     .then((result) => app.listen(3000))
     .catch((err) => console.log(err));
 // app.listen(3000);
-//register view engine
 app.set('view engine', 'ejs');
-app.use(express.static('views'));
+app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 // app.use(morgan('common'));
 // main page
